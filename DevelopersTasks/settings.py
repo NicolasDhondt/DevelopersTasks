@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # MY APPS
+    'developer.apps.DeveloperConfig',
 
     # OTHER APPS
     'crispy_forms',
@@ -49,7 +50,7 @@ INSTALLED_APPS = [
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # AUHT CONFIGURATION
-AUTH_USER_MODEL = 'developer.Developer'
+# AUTH_USER_MODEL = 'developer.Developer'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
