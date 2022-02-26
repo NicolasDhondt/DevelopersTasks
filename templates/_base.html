@@ -44,15 +44,22 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div id="navbar-nav" class="navbar-nav">
             <a
-              class="nav-item nav-link active"
+              id="nav-dev"
+              class="nav-item nav-link"
               href="{% url 'developer:index' %}"
               >Developpeurs</a
             >
-            <a class="nav-item nav-link" href="{% url 'task:index' %}">Tasks</a>
+            <a
+              id="nav-task"
+              class="nav-item nav-link"
+              href="{% url 'task:index' %}"
+              >Tasks</a
+            >
           </div>
         </div>
       </nav>
     </header>
     <main>{% block content %} {% endblock content %}</main>
+    {% block menu-script %} {% endblock menu-script %}
   </body>
 </html>
