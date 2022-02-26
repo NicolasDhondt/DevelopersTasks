@@ -1,16 +1,28 @@
-{% extends "_base.html" %} {% block content %} {% if developers %}
+{% extends "_base.html" %} {% load crispy_forms_tags %} {% load
+crispy_forms_filters %} {% block content %} {% if developers %}
+
 <div>
-  {% load static %} {% for dev in developers %}
-  <div>
-    <div>{{ dev.first_name }} {{ dev.last_name }}</div>
-    <div>
-      {{ dev.tasks.all|length }} tâche{{developer.tasks.all|length|pluralize}}
+  {% load static %}
+  <h1>Tous les developpeurs</h1>
+  <div id="allCards">
+    {% for dev in developers %}
+    <div id="oneCard" class="card bg-info">
+      <div class="card-title">
+        <b>{{ dev.first_name }} {{ dev.last_name }}</b>
+      </div>
+      <div class="card-body">
+        {{ dev.tasks.all|length }} tâche{{developer.tasks.all|length|pluralize}}
+      </div>
+      <div class="card-footer">
+        <a href="#" class="btn btn-outline-light">Détails</a>
+      </div>
     </div>
+    {% endfor %}
   </div>
-  {% endfor %}
 </div>
+
 {% else %}
 <div>
-  <p>Aucun développeur</p>
+  <p>Aucun développeur pour le moment !</p>
 </div>
-{% endif %} {% endblock content %}
+{% endif %} {% include 'developer/dev_modal.html' %} {% endblock content %}

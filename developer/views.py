@@ -1,16 +1,32 @@
 from django.shortcuts import render
+from django.contrib.auth import get_user_model
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from django.views.generic import ListView
+from developer.forms import ShortDeveloperForm
 
-from developer.models import Developer
 
 # Create your views here.
 
 
 class IndexView(ListView):
-    model = Developer
+    model = get_user_model()
     template_name = "developer/index.html"
     context_object_name = 'developers'
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
+        context['form'] = ShortDeveloperForm
         return context
+
+
+def create(request):
+    form = ShortDeveloperForm(request.POST)
+    if form.is_valid():
+        get_user_model().objects.create_user(
+            first_name=form.cleaned_data['first_name'],
+            last_name=form.cleaned_data['last_name'],
+            username=form.cleaned_data['username'],
+            password=form.cleaned_data['password'],
+        )
+    return HttpResponseRedirect(reverse('developer:index'))

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load crispy_forms_filters %} {% load crispy_forms_tags %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Modal</title>
+  </head>
+  <body>
+    <button
+      type="button"
+      id="addDevButton"
+      class="btn btn-outline-primary"
+      data-toggle="modal"
+      data-target="#add-dev-modal"
+    >
+      Ajouter developpeur
+    </button>
+    <div class="modal fade" id="add-dev-modal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Nouveau developpeur</h4>
+          </div>
+          <div class="modal-body">
+            <form action="{% url 'developer:create' %}" method="post">
+              {% csrf_token %} {{ form|crispy }}
+              <div>
+                <button class="btn btn-primary" type="submit">
+                  Créer développeur
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
