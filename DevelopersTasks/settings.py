@@ -50,7 +50,7 @@ INSTALLED_APPS = [
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # AUHT CONFIGURATION
-# AUTH_USER_MODEL = 'developer.Developer'
+AUTH_USER_MODEL = 'developer.Developer'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -135,3 +135,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR/"static",
+    '/var/css/static/',
+]

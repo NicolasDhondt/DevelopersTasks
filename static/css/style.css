@@ -1,0 +1,21 @@
+body {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main";
+  grid-template-rows: 1fr 9fr;
+}
+
+header {
+  grid-area: header;
+}
+
+main {
+  grid-area: main;
+  font-size: 18px;
+}
+
+nav {
+  padding: 1em;
+  font-size: 18px;
+}

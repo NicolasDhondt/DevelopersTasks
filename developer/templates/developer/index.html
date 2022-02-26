@@ -1,0 +1,16 @@
+{% extends "_base.html" %} {% block content %} {% if developers %}
+<div>
+  {% load static %} {% for dev in developers %}
+  <div>
+    <div>{{ dev.first_name }} {{ dev.last_name }}</div>
+    <div>
+      {{ dev.tasks.all|length }} tâche{{developer.tasks.all|length|pluralize}}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<div>
+  <p>Aucun développeur</p>
+</div>
+{% endif %} {% endblock content %}
