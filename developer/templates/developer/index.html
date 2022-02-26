@@ -1,8 +1,5 @@
-{% extends "_base.html" %} {% load crispy_forms_tags %} {% load
-crispy_forms_filters %} {% block content %} {% if developers %}
-
+{% extends "_base.html" %} {% block content %} {% if developers %}
 <div>
-  {% load static %}
   <h1>Tous les developpeurs</h1>
   <div id="allCards">
     {% for dev in developers %}
@@ -20,7 +17,6 @@ crispy_forms_filters %} {% block content %} {% if developers %}
     {% endfor %}
   </div>
 </div>
-
 {% else %}
 <div>
   <p>Aucun développeur pour le moment !</p>

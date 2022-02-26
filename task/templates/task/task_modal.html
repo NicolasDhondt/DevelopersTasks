@@ -2,16 +2,16 @@
 {% load crispy_forms_filters %} {% load crispy_forms_tags %} 
 
 {% block buttonContent %}
-  Ajouter developpeur
+  Ajouter une tâche
 {% endblock buttonContent %} 
 
-{% block modalTitle %} Nouveau developpeur {% endblock modalTitle %} 
+{% block modalTitle %} Nouvelle tâche {% endblock modalTitle %} 
 
 {% block modalForm %}
-<form action="{% url 'developer:create' %}" method="post">
+<form action="{% url 'task:create' %}" method="post">
   {% csrf_token %} {{ form|crispy }}
   <div>
-    <button class="btn btn-primary" type="submit">Créer le développeur</button>
+    <button class="btn btn-primary" type="submit">Créer la tâche</button>
   </div>
 </form>
 {% endblock modalForm %}

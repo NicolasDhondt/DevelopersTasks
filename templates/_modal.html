@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Modal</title>
+  </head>
+  <body>
+    <button
+      type="button"
+      id="addDevButton"
+      class="btn btn-outline-primary"
+      data-toggle="modal"
+      data-target="#add-modal"
+    >
+      {% block buttonContent %} {% endblock buttonContent %}
+    </button>
+    {% block addButton %} {% endblock addButton %}
+    <div class="modal fade" id="add-modal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">
+              {% block modalTitle %} {% endblock modalTitle %}
+            </h4>
+          </div>
+          <div class="modal-body">
+            {% block modalForm %} {% endblock modalForm %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

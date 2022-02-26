@@ -18,8 +18,7 @@ main {
 
 main h1 {
   font-size: 35px;
-  margin-top: 1em;
-  margin-left: 1em;
+  margin: 2em;
   text-decoration: underline;
 }
 
@@ -41,17 +40,23 @@ nav {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
-  margin: 2em;
 }
 
 #oneCard {
-  margin: 3em;
+  padding: 10px;
+  margin-left: 4em;
+  margin-bottom: 4em;
+  margin-top: 2em;
   width: 250px;
 }
 
 #addDevButton {
-  margin-left: 5em;
+  margin-left: 4em;
   font-size: 18px;
   width: 250px;
   height: 40px;
+}
+
+#tasksGroup {
+  margin-bottom: 4em;
 }
