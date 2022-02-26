@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     # MY APPS
     'developer.apps.DeveloperConfig',
+    'task.apps.TaskConfig',
 
     # OTHER APPS
     'crispy_forms',
