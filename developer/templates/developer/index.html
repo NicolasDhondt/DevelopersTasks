@@ -8,7 +8,7 @@ crispy_forms_filters %} {% block content %} {% if developers %}
     {% for dev in developers %}
     <div id="oneCard" class="card bg-info">
       <div class="card-title">
-        <b>{{ dev.first_name }} {{ dev.last_name }}</b>
+        <b> {{ dev.last_name|upper }} {{ dev.first_name|upper }}</b>
       </div>
       <div class="card-body">
         {{ dev.tasks.all|length }} tâche{{developer.tasks.all|length|pluralize}}
