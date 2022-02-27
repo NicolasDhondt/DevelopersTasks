@@ -7,6 +7,7 @@ class Task(models.Model):
     description = models.TextField('description', max_length=500)
     assigned = models.ForeignKey(get_user_model(), related_name="tasks",
                                  on_delete=models.CASCADE, blank=True, null=True, verbose_name="assigned")
+    dateTimeCreation = models.DateTimeField('date', auto_now=True)
 
     def __str__(self):
         return f"{self.title} ({self.description})"

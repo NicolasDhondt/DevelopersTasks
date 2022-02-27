@@ -11,7 +11,7 @@
         {% csrf_token %}
         <div>
           <button
-            onclick="return confirm('Are you sure you want to delete {{dev.last_name|upper}} {{dev.first_name|upper}}?');"
+            onclick="return confirm('Attention, voulez vous vraiment supprimer le développeur `{{dev.last_name|upper}} {{dev.first_name|upper}}`?');"
             class="close"
             type="submit"
           >

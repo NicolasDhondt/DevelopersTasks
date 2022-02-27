@@ -12,7 +12,7 @@
         {% csrf_token %}
         <div>
           <button
-            onclick="return confirm('Are you sure you want to delete the task {{task.title}} assigned to {{ task.assigned|upper }}?');"
+            onclick="return confirm('Attention, voulez vous vraiment supprimer la tâche `{{task.title}}` assigned to {{ task.assigned|upper }}?');"
             class="close"
             type="submit"
           >
@@ -22,6 +22,9 @@
       </form>
     </div>
     <p class="mb-1">Assignée à : {{ task.assigned|upper }}</p>
+    <p class="mb-1">
+      Créer le : {{ task.dateTimeCreation|date:"d/m/Y" }} à {{ task.dateTimeCreation|date:"H:i:s" }}
+    </p>
     <p class="mb-1">{{ task.description }}</p>
   </a>
   {% endfor %}
