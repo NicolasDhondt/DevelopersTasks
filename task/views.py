@@ -25,3 +25,9 @@ def create(request):
             assigned=form.cleaned_data['assigned'],
         )
     return HttpResponseRedirect(reverse('task:index'))
+
+
+def delete(request, taskId):
+    task = Task.objects.get(id=taskId)
+    task.delete()
+    return HttpResponseRedirect(reverse('task:index'))
