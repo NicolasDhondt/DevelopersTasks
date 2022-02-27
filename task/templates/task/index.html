@@ -1,5 +1,10 @@
 {% extends "task/base.html" %} {% block content %}
+{% if firstName %}
+<h1>Les tâches de {{lastName}} {{firstName}}</h1>
+<h2>Username : {{username}}</h2>
+{% else %}
 <h1>Toutes les tâches</h1>
+{% endif %}
 {% if tasks %}
 <div id="tasksGroup" class="list-group">
   {% for task in tasks %}
@@ -23,7 +28,7 @@
     </div>
     <p class="mb-1">Assignée à : {{ task.assigned|upper }}</p>
     <p class="mb-1">
-      Créer le : {{ task.dateTimeCreation|date:"d/m/Y" }} à {{ task.dateTimeCreation|date:"H:i:s" }}
+      Créer le : {{ task.dateTimeCreation|date:"d/m/Y" }} à {{task.dateTimeCreation|date:"H:i:s" }}
     </p>
     <p class="mb-1">{{ task.description }}</p>
   </a>

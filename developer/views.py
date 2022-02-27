@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.contrib.auth import get_user_model
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -9,13 +8,13 @@ from developer.forms import ShortDeveloperForm
 # Create your views here.
 
 
-class IndexView(ListView):
+class IndexDevView(ListView):
     model = get_user_model()
     template_name = "developer/index.html"
     context_object_name = 'developers'
 
     def get_context_data(self, **kwargs):
-        context = super(IndexView, self).get_context_data(**kwargs)
+        context = super(IndexDevView, self).get_context_data(**kwargs)
         context['form'] = ShortDeveloperForm
         return context
 

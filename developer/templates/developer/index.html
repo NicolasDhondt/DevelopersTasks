@@ -23,7 +23,9 @@
         {{ dev.tasks.all|length }} tâche{{developer.tasks.all|length|pluralize}}
       </div>
       <div class="card-footer">
-        <a href="#" class="btn btn-outline-light">Détails</a>
+        <a href="{% url 'task:detail' dev.id %}" class="btn btn-outline-light"
+          >Détails</a
+        >
       </div>
     </div>
     {% endfor %}
