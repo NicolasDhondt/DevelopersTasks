@@ -30,3 +30,9 @@ def create(request):
             password=form.cleaned_data['password'],
         )
     return HttpResponseRedirect(reverse('developer:index'))
+
+
+def delete(request, devId):
+    dev = get_user_model().objects.get(id=devId)
+    dev.delete()
+    return HttpResponseRedirect(reverse('developer:index'))

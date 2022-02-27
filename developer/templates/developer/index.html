@@ -7,6 +7,18 @@
       <div class="card-title">
         <b> {{ dev.last_name|upper }} {{ dev.first_name|upper }}</b>
       </div>
+      <form action="{% url 'developer:delete' dev.id %}" method="post">
+        {% csrf_token %}
+        <div>
+          <button
+            onclick="return confirm('Are you sure you want to delete {{dev.last_name|upper}} {{dev.first_name|upper}}?');"
+            class="close"
+            type="submit"
+          >
+            <i class="fa fa-trash"></i>
+          </button>
+        </div>
+      </form>
       <div class="card-body">
         {{ dev.tasks.all|length }} tâche{{developer.tasks.all|length|pluralize}}
       </div>
@@ -21,4 +33,4 @@
 <div>
   <p>Aucun développeur pour le moment !</p>
 </div>
-{% endif %} {% include 'developer/dev_modal.html' %} {% endblock content %}
+{% endif %} {% include '_dev_modal.html' %} {% endblock content %}
