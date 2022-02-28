@@ -1,7 +1,7 @@
 {% extends "task/base.html" %} {% block content %}
-{% if firstName %}
-<h1>Les tâches de {{lastName}} {{firstName}}</h1>
-<h2>Username : {{username}}</h2>
+{% if dev %}
+<h1>Les tâches de {{dev.lastName}} {{dev.firstName}}</h1>
+<h2>Username : {{dev.username}}</h2>
 {% else %}
 <h1>Toutes les tâches</h1>
 {% endif %}
@@ -13,7 +13,11 @@
   >
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">{{ task.title }}</h5>
-      <form action="{% url 'task:delete' task.id %}" method="post">
+      {% if dev %}
+      <form action="{% url 'task:delete' task.id dev.id %}" method="post">
+      {% else %}
+      <form action="{% url 'task:delete' task.id 0 %}" method="post">
+      {% endif %}
         {% csrf_token %}
         <div>
           <button

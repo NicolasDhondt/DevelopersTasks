@@ -19,7 +19,7 @@ class IndexTaskView(ListView):
         return context
 
 
-def create(request):
+def create(request, devId):
     form = TaskForm(request.POST)
     if form.is_valid():
         Task.objects.create(
@@ -27,20 +27,24 @@ def create(request):
             description=form.cleaned_data['description'],
             assigned=form.cleaned_data['assigned'],
         )
-    return HttpResponseRedirect(reverse('task:index'))
+    if(devId == 0):
+        return HttpResponseRedirect(reverse('task:index'))
+    else:
+        return HttpResponseRedirect(reverse('task:detail', args=[devId]))
 
 
-def delete(request, taskId):
+def delete(request, taskId, devId):
     task = Task.objects.get(id=taskId)
     task.delete()
-    return HttpResponseRedirect(reverse('task:index'))
+    if(devId == 0):
+        return HttpResponseRedirect(reverse('task:index'))
+    else:
+        return HttpResponseRedirect(reverse('task:detail', args=[devId]))
 
 
 def detail(request, devId):
     dev = get_user_model().objects.get(id=devId)
     tasks = Task.objects.filter(assigned=devId)
     return render(request, 'task/index.html', {'tasks': tasks,
-                                               'firstName': dev.first_name,
-                                               'lastName': dev.first_name,
-                                               'username': dev.username,
+                                               'dev': dev,
                                                'form': TaskForm})
