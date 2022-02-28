@@ -1,5 +1,5 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
-
 from django.contrib.auth import get_user_model
 from .models import Task
 from django.http import HttpResponseRedirect
@@ -8,7 +8,7 @@ from .forms import TaskForm
 from django.shortcuts import render
 
 
-class IndexTaskView(ListView):
+class IndexTaskView(LoginRequiredMixin, ListView):
     model = Task
     template_name = "task/index.html"
     context_object_name = 'tasks'

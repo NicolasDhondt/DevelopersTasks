@@ -32,6 +32,9 @@ def create(request):
 
 
 def delete(request, devId):
-    dev = get_user_model().objects.get(id=devId)
-    dev.delete()
-    return HttpResponseRedirect(reverse('developer:index'))
+    if request.user.is_authenticated:
+        dev = get_user_model().objects.get(id=devId)
+        dev.delete()
+        return HttpResponseRedirect(reverse('developer:index'))
+    else:
+        return HttpResponseRedirect(reverse('login'))

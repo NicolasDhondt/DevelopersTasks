@@ -9,5 +9,8 @@ class Task(models.Model):
                                  on_delete=models.CASCADE, blank=True, null=True, verbose_name="assigned")
     dateTimeCreation = models.DateTimeField('date', auto_now=True)
 
+    class Meta:
+        ordering = ['-dateTimeCreation']
+
     def __str__(self):
         return f"{self.title} ({self.description})"
