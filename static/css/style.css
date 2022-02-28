@@ -24,6 +24,15 @@ main h1 {
   text-decoration: underline;
 }
 
+.subtitle{
+  margin-left: 3em;
+  margin-bottom: 1em;
+}
+
+.noRegister{
+  margin-left: 8em;
+}
+
 nav {
   height: 80px;
   font-size: 18px;
