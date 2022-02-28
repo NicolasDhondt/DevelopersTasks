@@ -12,8 +12,6 @@ _This application is designed for developers and will help them to manage their 
 2. To install Django framework : python -m pip install Django
 3. To install psycopg2 : pip install psycopg2
 
-psycopg2
-
 ### Command to run the server
 
 python manage.py runserver
