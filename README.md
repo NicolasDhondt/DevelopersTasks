@@ -11,6 +11,7 @@ _This application is designed for developers and will help them to manage their 
 1. Having a python environement
 2. To install Django framework : python -m pip install Django
 3. To install psycopg2 : pip install psycopg2
+4. Check the DevelopersTasks/settings.py file and set up the section DATABASES
 
 ### Command to run the server
 
