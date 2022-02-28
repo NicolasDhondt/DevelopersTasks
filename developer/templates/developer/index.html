@@ -1,6 +1,7 @@
-{% extends "developer/base.html" %} {% block content %} {% if developers %}
+{% extends "developer/base.html" %} {% block content %} 
+<h1>Tous les developpeurs</h1>
+{% if developers %}
 <div>
-  <h1>Tous les developpeurs</h1>
   <div id="allCards">
     {% for dev in developers %}
     <div id="oneCard" class="card bg-info">
