@@ -140,3 +140,6 @@ STATICFILES_DIRS = [
     BASE_DIR/"static",
     '/var/css/static/',
 ]
+
+LOGIN_REDIRECT_URL = 'developer:index'
+LOGOUT_REDIRECT_URL = 'developer:index'

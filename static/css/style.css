@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
 body {
   display: grid;
   grid-template-areas:
@@ -36,6 +38,10 @@ nav {
   margin-left: 5em;
 }
 
+#navbar-nav a {
+  margin-left: 2em;
+}
+
 #allCards {
   display: flex;
   flex-wrap: wrap;
@@ -56,4 +62,24 @@ nav {
   font-size: 18px;
   width: 250px;
   height: 40px;
+}
+
+.loginButton{
+  text-align: center;
+		padding: 1em;
+    width: 150px;
+		background: rgb(123, 126, 156);
+		color: white;
+		border: none;
+		border-radius: 30px;
+}
+
+.loginButton:hover{
+  text-decoration: none;
+  background: rgb(84, 87, 112);
+  color: white;
+}
+
+#loginFormButton{
+  margin-top: 2.5em;
 }

@@ -61,6 +61,20 @@
             >
           </div>
         </div>
+        {% if user.is_authenticated %}
+        <p>
+            <a id="nav-logout" 
+            class="logoutButton"
+            href="{% url 'logout' %}"><i class="fa fa-sign-out"></i></a>
+        </p>
+        {% else %}
+          <a
+          id="nav-login"
+          class="loginButton"
+          href="{% url 'login' %}"
+          >Connexion</a
+        >
+        {% endif %}
       </nav>
     </header>
     <main>{% block content %} {% endblock content %}</main>
