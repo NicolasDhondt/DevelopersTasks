@@ -14,4 +14,4 @@ _This application is designed for developers and will help them to manage their 
 
 ### Command to run the server
 
-python manage.py runserver
+- python manage.py runserver
